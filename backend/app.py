@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import openai
 import os
+import logging
 
 app = Flask(__name__)
 CORS(app)
@@ -9,12 +10,13 @@ CORS(app)
 @app.route('/generate-message', methods=['POST'])
 def generate_message():
     data = request.json
+    logging.info(f"data received: {data}")
     
     # Create a prompt based on the received data
-    prompt = f"""Create a heartfelt {data['occasion']} message from {data['sender']} to {data['receiver']}.
-    Include this memory: {data['memory']}
-    Inside joke: {data['inside_joke']}
-    Make it personal and emotional."""
+    # prompt = f"""Create a heartfelt {data['occasion']} message from {data['sender']} to {data['receiver']}.
+    # Include this memory: {data['memory']}
+    # Inside joke: {data['inside_joke']}
+    # Make it personal and emotional."""
     
     try:
         # Generate message using OpenAI API
