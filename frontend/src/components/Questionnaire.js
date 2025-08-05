@@ -34,7 +34,9 @@ const Questionnaire = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost:5000/generate-message', {
+      const UrlGenerateMsg = process.env.REACT_APP_URL_GENERATE_MSG || 'http://localhost:5000'
+      const EndpntGenerateMsg = process.env.REACT_APP_ENDPOINT_GENERATE_MSG || '/generate-message';
+      const response = await fetch(`${UrlGenerateMsg}${EndpntGenerateMsg}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
