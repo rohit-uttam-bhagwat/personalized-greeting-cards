@@ -18,18 +18,19 @@ def generate_message():
     
     try:
         # Generate message using OpenAI API
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "You are a creative writer specializing in personal greetings."},
-                {"role": "user", "content": prompt}
-            ]
-        )
+        # response = openai.ChatCompletion.create(
+        #     model="gpt-3.5-turbo",
+        #     messages=[
+        #         {"role": "system", "content": "You are a creative writer specializing in personal greetings."},
+        #         {"role": "user", "content": prompt}
+        #     ]
+        # )
         
-        message = response.choices[0].message.content
+        # message = response.choices[0].message.content
+        message = "Hi, Welcome Dear Friend, Your Personalized Message Coming Soon!"  # Placeholder for the generated message
         
         # For now, return a static image URL (you can implement proper image generation later)
-        image_url = "https://placeholder.com/ghibli-style-greeting"
+        image_url = "https://ghiblicreator.com/images/ghibli-placeholder.png"
         
         return jsonify({
             "message": message,
