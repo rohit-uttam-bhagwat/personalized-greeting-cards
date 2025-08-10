@@ -1,0 +1,42 @@
+.occasion-select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background: linear-gradient(145deg, #fdf6f0, #fce2e2);
+    font-family: 'Baloo 2', cursive;
+  }
+  
+  .occasion-select h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #444;
+  }
+  
+  .occasion-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .occasion-option {
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .occasion-option:hover {
+    background-color: #ffdfd3;
+    transform: translateY(-3px);
+  }
+  
+  .occasion-option.selected {
+    background-color: #ff7a6f;
+    color: white;
+  }

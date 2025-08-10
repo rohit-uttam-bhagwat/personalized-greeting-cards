@@ -1,22 +1,18 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Welcome from './components/Welcome';
-import Questionnaire from './components/Questionnaire';
-import GreetingCard from './components/GreetingCard';
-import './App.css';
+// src/App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import CreateCard from "./pages/CreateCard";
+import Landing from "./pages/Landing";
 
-function App() {
+export default function App() {
   return (
     <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/questionnaire" element={<Questionnaire />} />
-          <Route path="/greeting" element={<GreetingCard />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/create" element={<CreateCard />} />
+      </Routes>
     </Router>
   );
 }
-
-export default App;

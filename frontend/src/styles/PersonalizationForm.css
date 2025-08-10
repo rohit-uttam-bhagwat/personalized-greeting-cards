@@ -1,0 +1,54 @@
+/* src/styles/PersonalizationForm.css */
+.personalization-form {
+  padding: 2rem;
+  background-color: #fffafc;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+  margin: 2rem auto;
+  font-family: 'Baloo 2', cursive;
+}
+
+.personalization-form h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.personalization-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.personalization-form input,
+.personalization-form textarea,
+.personalization-form select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.personalization-form button {
+  background: linear-gradient(135deg, #ff7a6f, #ffb347);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: block;
+  margin: 1rem auto 0;
+}
+
+.personalization-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

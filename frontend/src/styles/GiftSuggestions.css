@@ -1,0 +1,50 @@
+/* src/styles/GiftSuggestions.css */
+.gift-suggestions {
+  padding: 2rem;
+  font-family: 'Baloo 2', cursive;
+  background-color: #fffafc;
+}
+
+.gift-suggestions h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.gift-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gift-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gift-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.gift-item h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #ff7a6f;
+}
+
+.gift-item p {
+  margin: 0.3rem 0 0;
+  font-size: 0.95rem;
+  color: #666;
+}
