@@ -11,14 +11,15 @@ import { motion, AnimatePresence } from "framer-motion";
  * - To export the card as an image, integrate html2canvas or dom-to-image and call downloadImage().
  */
 
-type Occasion = {
-  id: string;
-  title: string;
-  emoji: string;
-  color: string; // Tailwind background class or hex
-};
+/**
+ * @typedef {Object} Occasion
+ * @property {string} id
+ * @property {string} title
+ * @property {string} emoji
+ * @property {string} color
+ */
 
-const OCCASIONS: Occasion[] = [
+const OCCASIONS = [
   { id: "birthday", title: "Birthday", emoji: "🎂", color: "bg-pink-100" },
   { id: "anniv", title: "Anniversary", emoji: "💍", color: "bg-amber-100" },
   { id: "grad", title: "Graduation", emoji: "🎓", color: "bg-green-100" },
@@ -28,25 +29,26 @@ const OCCASIONS: Occasion[] = [
 ];
 
 // Mock AI generator — replace with real API call.
-function mockAI({ name, memory, tone, personality, occasion }: any) {
+function mockAI(params) {
+  const { name, memory, tone, personality, occasion } = params;
   const short = `Dear ${name},\n\n${memory ? memory.slice(0, 80) + (memory.length > 80 ? "..." : "") : "Thinking of you today"}. Sending love and bright smiles!`;
   const long = `Dear ${name},\n\nI still remember ${memory || "the time we shared a laugh"}. Your ${personality || "kind"} nature lights up every room. On this ${occasion} — may you get all the joy you give to others.\n\n${tone === "funny" ? "P.S. Keep the cake away from strangers." : tone === "poetic" ? "May your day bloom like quiet starlight." : "Love always."}`;
-  return new Promise<{ short: string; long: string }>((resolve) => {
+  return new Promise((resolve) => {
     setTimeout(() => resolve({ short, long }), 1200 + Math.random() * 800);
   });
 }
 
 export default function AIGreetingCardApp() {
-  const [stage, setStage] = useState<number>(0); // 0: landing, 1: occasion, 2: form, 3: loading, 4: result
-  const [selectedOccasion, setSelectedOccasion] = useState<Occasion | null>(OCCASIONS[0]);
+  const [stage, setStage] = useState(0); // 0: landing, 1: occasion, 2: form, 3: loading, 4: result
+  const [selectedOccasion, setSelectedOccasion] = useState(OCCASIONS[0]);
   const [name, setName] = useState("");
   const [memory, setMemory] = useState("");
   const [personality, setPersonality] = useState("");
-  const [tone, setTone] = useState<"funny" | "heartfelt" | "poetic">("heartfelt");
-  const [aiResult, setAiResult] = useState<{ short: string; long: string } | null>(null);
+  const [tone, setTone] = useState("heartfelt");
+  const [aiResult, setAiResult] = useState(null);
   const [isConfetti, setIsConfetti] = useState(false);
   const [showLong, setShowLong] = useState(false);
-  const cardRef = useRef<HTMLDivElement | null>(null);
+  const cardRef = useRef(null);
 
   async function handleGenerate() {
     setStage(3);
@@ -74,9 +76,9 @@ export default function AIGreetingCardApp() {
     const text = showLong ? aiResult?.long : aiResult?.short;
     if (!text) return;
 
-    if ((navigator as any).canShare && (navigator as any).share) {
+    if (navigator.canShare && navigator.share) {
       try {
-        await (navigator as any).share({ title: `${selectedOccasion?.title} greeting for ${name}`, text });
+        await navigator.share({ title: `${selectedOccasion?.title} greeting for ${name}`, text });
       } catch (err) {
         console.error("Share failed", err);
       }
@@ -224,7 +226,7 @@ export default function AIGreetingCardApp() {
                     <label className="block">
                       <div className="text-sm text-gray-600">Tone</div>
                       <div className="mt-2 flex gap-2">
-                        {(["funny", "heartfelt", "poetic"] as any).map((t: any) => (
+                        {["funny", "heartfelt", "poetic"].map((t) => (
                           <button key={t} onClick={() => setTone(t)} className={`px-3 py-1 rounded-lg ${tone === t ? "bg-gradient-to-r from-[#00C9A7] to-[#66D4B1] text-white" : "bg-white border"}`}>
                             {t}
                           </button>

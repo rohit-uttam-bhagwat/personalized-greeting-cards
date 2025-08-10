@@ -1,89 +1,20 @@
-.App {
-  text-align: center;
-  min-height: 100vh;
-  padding: 20px;
-  background-color: #f5f5f5;
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.welcome-container,
-.questionnaire-container,
-.greeting-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Font styles for the special headings */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap');
+
+/* Utility classes */
+.whitespace-pre-line {
+  white-space: pre-line;
 }
 
-.btn {
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #4CAF50;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #45a049;
-}
-
-.btn-secondary {
-  background-color: #6c757d;
-}
-
-.btn-secondary:hover {
-  background-color: #5a6268;
-}
-
-.form-group {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-.error {
-  color: #dc3545;
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-.success {
-  color: #28a745;
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .welcome-container,
-  .questionnaire-container,
-  .greeting-container {
-    margin: 10px;
-    padding: 15px;
-  }
-  
-  .btn {
-    width: 100%;
-    margin: 5px 0;
-  }
+/* Fix for sticky positioning if needed */
+.sticky {
+  position: sticky;
+  z-index: 10;
 }
