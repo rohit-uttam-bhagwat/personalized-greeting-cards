@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import CreateCard from "./pages/CreateCard";
-import Landing from "./pages/Landing";
+import Landing from "./pages/LandingPage";
 
 export default function App() {
   return (
