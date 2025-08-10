@@ -1,6 +1,6 @@
 // src/pages/CreateCard.js
 import React, { useState } from "react";
-import OccasionSelection from "../components/OccasionSelection";
+import OccasionSelection from "../components/OccasionSelect";
 import PersonalizationForm from "../components/PersonalizationForm";
 import LoadingScreen from "../components/LoadingScreen";
 import GeneratedCard from "../components/GeneratedCard";
